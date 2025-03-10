@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Compression Streams API Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="Content/WebSharper.CompressionStreams.Sample.css" />
+    <style>
+        /* Don't show the not-yet-loaded templates */
+        [ws-template], [ws-children-template] { display: none; }
+    </style>
+    <script type="module" src="Content/WebSharper.CompressionStreams.Sample.head.js"></script>
+</head>
+<body>
+    <h1>Compression Streams API Example</h1>
+    <div id="main" ws-children-template="Main">
+        <textarea id="inputText" ws-var="InputText" placeholder="Enter text to compress"></textarea>
+        <button ws-onclick="CompressText">Compress</button>
+        <button ws-onclick="DecompressText">Decompress</button>
+
+        <h2>Compressed Output (Base64)</h2>
+        <p id="compressedData" ws-replace="CompressedData"></p>
+
+        <h2>Decompressed Output</h2>
+        <p id="decompressedData" ws-replace="DecompressedData"></p>
+    </div>
+    <script type="module" src="Content/WebSharper.CompressionStreams.Sample.min.js"></script>
+</body>
+</html>
