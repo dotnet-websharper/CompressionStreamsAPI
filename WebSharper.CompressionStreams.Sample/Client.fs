@@ -31,11 +31,8 @@ module Client =
             let encoder = JS.Eval("new TextEncoder()")
             let data = encoder?encode(inputText.Value) |> As<ArrayBuffer>
 
-            printfn($"{inputText.Value}")
-            
             let blob = new Blob([|data|])
             let compressedStream = blob.Stream().PipeThrough(new CompressionStream(CompressionFormat.Gzip) |> As<ReadableWritablePair>)
-            //let compressedStream = blob?stream()?pipeThrough(JS.Eval("new CompressionStream('gzip')")) |> As<ReadableStream>
 
             let response = new Response(compressedStream)
             let! compressedArrayBuffer = response.ArrayBuffer()
@@ -51,7 +48,6 @@ module Client =
 
             let blob = new Blob([|compressedArrayBuffer|])
             let decompressedStream = blob.Stream().PipeThrough(new DecompressionStream(CompressionFormat.Gzip) |> As<ReadableWritablePair>)
-            //let decompressedStream = blob?stream()?pipeThrough(JS.Eval("new DecompressionStream('gzip')")) |> As<ReadableStream>
 
             let response = new Response(decompressedStream) 
             let! decompressedArrayBuffer = response.ArrayBuffer()
