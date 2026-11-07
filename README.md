@@ -17,6 +17,12 @@ The repository contains two projects:
 
 ## Live demos
 
+**Try it live:** [Open the sample in your browser](https://dotnet-websharper.github.io/CompressionStreamsAPI/)
+
+![Compression Streams API sample](docs/sample.png)
+
+The sample doubles as the binding's [test case](#running-the-test-case): it compresses text with gzip and decompresses it back in the browser.
+
 - Binding sample (GitHub Pages): <https://dotnet-websharper.github.io/CompressionStreamsAPI/>
 - Source: <https://github.com/dotnet-websharper/CompressionStreamsAPI>
 - WebSharper bindings catalog: <https://websharper.com/bindings>
