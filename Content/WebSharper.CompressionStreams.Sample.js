@@ -47,8 +47,8 @@ function inputText(){
 }
 function compressText(){
   return new Promise((_1) => {
-    _1((new Response((new Blob([eval("new TextEncoder()").encode(inputText().Get())])).stream().pipeThrough(new globalThis.CompressionStream("gzip")))).arrayBuffer().then((d) => {
-      compressedData().Set(encodeToBase64(d));
+    _1((new Response((new Blob([eval("new TextEncoder()").encode(inputText().Get())])).stream().pipeThrough(new globalThis.CompressionStream("gzip")))).arrayBuffer().then((a) => {
+      compressedData().Set(encodeToBase64(a));
       return Promise.resolve(null);
     }));
   });
@@ -57,8 +57,8 @@ function decompressText(){
   return new Promise((_1) => {
     const p1=compressedData().Get()==""?Promise.resolve(null):Promise.resolve(null);
     const p2=new Promise((_4) => {
-      _4((new Response((new Blob([decodeFromBase64(compressedData().Get())])).stream().pipeThrough(new globalThis.DecompressionStream("gzip")))).arrayBuffer().then((d) => {
-        const decompressedText=eval("new TextDecoder()").decode(d);
+      _4((new Response((new Blob([decodeFromBase64(compressedData().Get())])).stream().pipeThrough(new globalThis.DecompressionStream("gzip")))).arrayBuffer().then((a) => {
+        const decompressedText=eval("new TextDecoder()").decode(a);
         decompressedData().Set(decompressedText);
         return Promise.resolve(null);
       }));
@@ -3274,7 +3274,7 @@ class Event extends TemplateHole {
 }
 function Handler(name, callback){
   return Attr.A3((el) => {
-    el.addEventListener(name, (d) =>(callback(el))(d), false);
+    el.addEventListener(name, (o) =>(callback(el))(o), false);
   });
 }
 function OnAfterRender(callback){
@@ -3311,7 +3311,7 @@ function DynamicCustom(set_1, view){
 class Attr {
   static HandlerImpl(event, q){
     return Attr.A3((el) => {
-      el.addEventListener(event, (d) =>(q(el))(d), false);
+      el.addEventListener(event, (o) =>(q(el))(o), false);
     });
   }
   static Concat(xs){
